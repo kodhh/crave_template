@@ -13,20 +13,6 @@ git clone https://github.com/kodhh/android_hardware_qcom_audio_mithorium.git -b 
 git clone https://github.com/kodhh/android_hardware_qcom_display_mithorium.git -b master --depth=1 hardware/qcom-caf/msm8953/display
 git clone https://github.com/kodhh/android_hardware_qcom_media_mithorium.git --depth=1 hardware/qcom-caf/msm8953/media
 
-cd frameworks/base
-curl -sLo fw.patch https://raw.githubusercontent.com/lineageos4microg/docker-lineage-cicd/master/src/signature_spoofing_patches/android_frameworks_base-Android14.patch
-patch -p1 -N -r - < fw.patch || echo "fw.patch already applied"
-curl -sLo ub.patch https://raw.githubusercontent.com/lineageos4microg/docker-lineage-cicd/master/src/signature_spoofing_patches/android_frameworks_base-user_build.patch
-patch -p1 -N -r - < ub.patch || echo "ub.patch already applied"
-rm -f *.patch
-cd ../..
-
-cd packages/modules/Permission
-curl -sLo perm.patch https://raw.githubusercontent.com/lineageos4microg/docker-lineage-cicd/master/src/signature_spoofing_patches/packages_modules_Permission-Android14.patch
-patch -p1 -N -r - < perm.patch || echo "perm.patch already applied"
-rm -f *.patch
-cd ../../..
-
 export WITH_GMS=true
 source build/envsetup.sh
 breakfast YUREKA2 userdebug
