@@ -1,4 +1,4 @@
-cd /tmp/src/android/.repo
+cd /tmp/src/android
 rm -r /tmp/src/android/.repo
 repo init -u https://github.com/LineageOS-Revived/android.git -b lineage-17.1 --git-lfs
 repo sync
