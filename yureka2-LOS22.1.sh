@@ -1,7 +1,4 @@
-mkdir LOS22.1
-cd LOS22.1
-repo init -u https://github.com/LineageOS/android.git -b lineage-22.1 --git-lfs
-crave_repo_sync
+/tmp/src/android
 
 rm -rf kernel/yu/YUREKA2 device/yu/YUREKA2 vendor/yu/YUREKA2 2>/dev/null
 rm -rf hardware/qcom-caf/msm8953/audio hardware/qcom-caf/msm8953/display hardware/qcom-caf/msm8953/media 2>/dev/null
