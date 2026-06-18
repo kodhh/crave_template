@@ -13,7 +13,7 @@ git clone https://github.com/kodhh/android_hardware_qcom_audio_mithorium.git -b 
 git clone https://github.com/kodhh/android_hardware_qcom_display_mithorium.git -b master --depth=1 hardware/qcom-caf/msm8953/display
 git clone https://github.com/kodhh/android_hardware_qcom_media_mithorium.git --depth=1 hardware/qcom-caf/msm8953/media
 
-export WITH_GMS=true
+
 source build/envsetup.sh
 breakfast YUREKA2 userdebug
 mka bacon
