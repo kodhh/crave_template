@@ -1,6 +1,6 @@
 rm -r /tmp/src/android/.repo
 repo init -u https://github.com/LineageOS-Revived/android.git -b lineage-17.1 --git-lfs
-repo_sync
+repo sync
 
 rm -rf kernel/xiaomi/hermes device/xiaomi/hermes vendor/xiaomi/hermes 2>/dev/null
 
