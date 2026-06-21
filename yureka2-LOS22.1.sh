@@ -1,6 +1,8 @@
-cd /tmp/src/android
+rm -rf .repo/local_manifests 
 
-/opt/crave/resync.sh
+repo init -u https://github.com/LineageOS/android.git -b lineage-22.2 --git-lfs
+
+/opt/crave/resync.sh 
 
 rm -rf kernel/yu/YUREKA2 device/yu/YUREKA2 vendor/yu/YUREKA2 2>/dev/null
 rm -rf hardware/qcom-caf/msm8953/audio hardware/qcom-caf/msm8953/display hardware/qcom-caf/msm8953/media 2>/dev/null
