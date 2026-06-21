@@ -1,6 +1,6 @@
 cd /tmp/src/android
 
-repo sync
+/opt/crave/resync.sh
 
 rm -rf kernel/yu/YUREKA2 device/yu/YUREKA2 vendor/yu/YUREKA2 2>/dev/null
 rm -rf hardware/qcom-caf/msm8953/audio hardware/qcom-caf/msm8953/display hardware/qcom-caf/msm8953/media 2>/dev/null
