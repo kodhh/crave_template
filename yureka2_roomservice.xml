@@ -3,9 +3,9 @@
   <!-- 定义独立的远程源 -->
   <remote name="kodhh-remote" fetch="https://github.com" />
 
-  <remove-project name="LineageOS/android_hardware_qcom-caf_msm8953_audio" />
-  <remove-project name="LineageOS/android_hardware_qcom-caf_msm8953_display" />
-  <remove-project name="LineageOS/android_hardware_qcom-caf_msm8953_media" />
+  <remove-project name="LineageOS/android_hardware_qcom_audio" />
+  <remove-project name="LineageOS/android_hardware_qcom_display" />
+  <remove-project name="LineageOS/android_hardware_qcom_media" />
 
   <project name="kodhh/android_kernel_YUREKA2-4.19" path="kernel/yu/YUREKA2" remote="kodhh-remote" revision="lineageos-22.2" />
   <project name="kodhh/device-yureka2" path="device/yu/YUREKA2" remote="kodhh-remote" revision="lineageos-22.2" />
