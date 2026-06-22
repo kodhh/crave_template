@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
+  <!-- 定义独立的远程源 -->
   <remote name="kodhh-remote" fetch="https://github.com" />
-  <remove-project name="hardware/qcom-caf/msm8953/audio" />
-  <remove-project name="hardware/qcom-caf/msm8953/display" />
-  <remove-project name="hardware/qcom-caf/msm8953/media" />
+
+  <remove-project name="LineageOS/android_hardware_qcom-caf_msm8953_audio" />
+  <remove-project name="LineageOS/android_hardware_qcom-caf_msm8953_display" />
+  <remove-project name="LineageOS/android_hardware_qcom-caf_msm8953_media" />
+
   <project name="kodhh/android_kernel_YUREKA2-4.19" path="kernel/yu/YUREKA2" remote="kodhh-remote" revision="lineageos-22.2" />
   <project name="kodhh/device-yureka2" path="device/yu/YUREKA2" remote="kodhh-remote" revision="lineageos-22.2" />
   <project name="kodhh/vendor-yureka2" path="vendor/yu/YUREKA2" remote="kodhh-remote" revision="lineageos-22.2" />
+
   <project name="kodhh/android_hardware_qcom_audio_mithorium" path="hardware/qcom-caf/msm8953/audio" remote="kodhh-remote" revision="master" />
   <project name="kodhh/android_hardware_qcom_display_mithorium" path="hardware/qcom-caf/msm8953/display" remote="kodhh-remote" revision="master" />
   <project name="kodhh/android_hardware_qcom_media_mithorium" path="hardware/qcom-caf/msm8953/media" remote="kodhh-remote" />
 </manifest>
+
