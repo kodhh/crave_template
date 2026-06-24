@@ -1,24 +1,20 @@
-rm -r /tmp/src/android/.repo
-repo init -u https://github.com/LineageOS-Revived/android.git -b lineage-17.1 --git-lfs
+
+repo init -u https://github.com/LineageOS/android.git -b lineage-17.1 --git-lfs --depth=1 --no-repo-verify
 /opt/crave/resync.sh 
 
 rm -rf kernel/xiaomi/hermes device/xiaomi/hermes vendor/xiaomi/hermes 2>/dev/null
+rm -rf prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9
+rm -rf prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9
 
 git clone https://github.com/kodhh/android_kernel_xiaomi_hermes.git -b lineage-16.0 --depth=1 kernel/xiaomi/hermes
 git clone https://github.com/kodhh/android_device_tree_hermes.git -b lineage-17.1 --depth=1 device/xiaomi/hermes
 git clone https://github.com/kodhh/android_vendor_hermes.git -b lineage-17.1 --depth=1 vendor/xiaomi/hermes
 
-# Apply device tree patches (MTK HAL, bionic, etc.)
-device/xiaomi/hermes/patches/install.sh
+git clone --depth=1 -b lineage-19.1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9.git prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9
+git clone --depth=1 -b lineage-19.1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9.git prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9
 
-cd frameworks/base
-curl -sLo q.patch https://raw.githubusercontent.com/lineageos4microg/docker-lineage-cicd/master/src/signature_spoofing_patches/android_frameworks_base-Q.patch
-patch -p1 -N -r - < q.patch || echo "q.patch already applied"
-curl -sLo ub.patch https://raw.githubusercontent.com/lineageos4microg/docker-lineage-cicd/master/src/signature_spoofing_patches/android_frameworks_base-user_build.patch
-patch -p1 -N -r - < ub.patch || echo "ub.patch already applied"
-rm -f *.patch
-cd ../..
+timeout 120 bash -c "device/xiaomi/hermes/patches/install.sh"
 
 source build/envsetup.sh
-breakfast hermes userdebug
+breakfast hermes
 mka bacon
