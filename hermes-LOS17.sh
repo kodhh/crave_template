@@ -17,4 +17,7 @@ timeout 120 bash -c "device/xiaomi/hermes/patches/install.sh"
 
 source build/envsetup.sh
 breakfast hermes
+
+make -j$(nproc) SIGN_IMAGE=1 SHOW_COMMANDS=1 -- -k 0
+
 mka bacon
