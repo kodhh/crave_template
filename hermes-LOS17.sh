@@ -5,6 +5,12 @@ repo init -u https://github.com/LineageOS/android.git -b lineage-17.1 --git-lfs 
 rm -rf kernel/xiaomi/hermes device/xiaomi/hermes vendor/xiaomi/hermes 2>/dev/null
 rm -rf prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9
 rm -rf prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9
+rm -rf external/chromium-webview/prebuilt/arm external/chromium-webview/prebuilt/arm64 external/chromium-webview/prebuilt/x86 external/chromium-webview/prebuilt/x86_64 -rf
+
+git clone https://github.com/LineageOS/android_external_chromium-webview_prebuilt_x86_64 external/chromium-webview/prebuilt/x86_64 --depth=1
+git clone https://github.com/LineageOS/android_external_chromium-webview_prebuilt_x86 external/chromium-webview/prebuilt/x86 --depth=1
+git clone external/chromium-webview/prebuilt/arm64 external/chromium-webview/prebuilt/arm64 --depth=1
+git clone external/chromium-webview/prebuilt/arm  external/chromium-webview/prebuilt/arm --depth=1
 
 git clone https://github.com/kodhh/android_kernel_xiaomi_hermes.git -b lineage-16.0 --depth=1 kernel/xiaomi/hermes
 git clone https://github.com/kodhh/android_device_tree_hermes.git -b lineage-17.1 --depth=1 device/xiaomi/hermes
